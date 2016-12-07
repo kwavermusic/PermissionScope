@@ -258,7 +258,7 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
         }
         closeButton.setTitleColor(closeButtonTextColor, for: .normal)
 
-        let baseOffset = 45
+        let baseOffset = 60
         var index = 0
         for button in permissionButtons {
             button.center = contentView.center
