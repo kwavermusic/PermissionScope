@@ -258,12 +258,12 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
         }
         closeButton.setTitleColor(closeButtonTextColor, for: .normal)
 
-        let baseOffset = 95
+        let baseOffset = 45
         var index = 0
         for button in permissionButtons {
             button.center = contentView.center
             button.frame.offsetInPlace(dx: -contentView.frame.origin.x, dy: -contentView.frame.origin.y)
-            button.frame.offsetInPlace(dx: 0, dy: -((dialogHeight/2)-160) + 40)
+            button.frame.offsetInPlace(dx: 0, dy: -((dialogHeight/2)-160) + CGFloat(index * baseOffset))
             
             let type = configuredPermissions[index].type
             
