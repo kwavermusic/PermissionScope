@@ -158,7 +158,7 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
         // Set up main view
         view.frame = UIScreen.main.bounds
         view.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
-        view.backgroundColor = UIColor(red:0, green:0, blue:0, alpha:0.7)
+        view.backgroundColor = UIColor(red:0, green:0, blue:0, alpha:0.6)
         view.addSubview(baseView)
         // Base View
         baseView.frame = view.frame
@@ -170,9 +170,9 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
         }
         // Content View
         contentView.backgroundColor = UIColor.white
-        contentView.layer.cornerRadius = 10
+        contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
-        contentView.layer.borderWidth = 0.5
+        contentView.layer.borderWidth = 1
 
         // header label
         headerLabel.font = UIFont.systemFont(ofSize: 22)
@@ -263,7 +263,7 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
         for button in permissionButtons {
             button.center = contentView.center
             button.frame.offsetInPlace(dx: -contentView.frame.origin.x, dy: -contentView.frame.origin.y)
-            button.frame.offsetInPlace(dx: 0, dy: -((dialogHeight/2)-160) + CGFloat(index * baseOffset))
+            button.frame.offsetInPlace(dx: 0, dy: -((dialogHeight/2)-160) + 40)
             
             let type = configuredPermissions[index].type
             
@@ -375,7 +375,7 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
     - returns: UILabel instance with a custom style.
     */
     func permissionStyledLabel(_ type: PermissionType) -> UILabel {
-        let label  = UILabel(frame: CGRect(x: 0, y: 0, width: 260, height: 50))
+        let label  = UILabel(frame: CGRect(x: 0, y: 0, width: 260, height: 0))
         label.font = labelFont
         label.numberOfLines = 2
         label.textAlignment = .center
