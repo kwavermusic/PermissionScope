@@ -1057,16 +1057,14 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
         self.view.setNeedsLayout()
         
         // slide in the view
-        self.baseView.frame.origin.y = self.view.bounds.origin.y - self.baseView.frame.size.height
+        self.baseView.center.y = window.center.y
         self.view.alpha = 0
         
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
-            self.baseView.center.y = window.center.y + 15
+        UIView.animate(withDuration: 0.35, delay: 0.0, options: [], animations: {
+            
             self.view.alpha = 1
         }, completion: { finished in
-            UIView.animate(withDuration: 0.2, animations: {
-                self.baseView.center = window.center
-            })
+            
         })
     }
 
@@ -1076,14 +1074,10 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
     public func hide() {
         let window = UIApplication.shared.keyWindow!
 
-        DispatchQueue.main.async(execute: {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.baseView.frame.origin.y = window.center.y + 400
-                self.view.alpha = 0
-            }, completion: { finished in
-                self.view.removeFromSuperview()
-            })
-        })
+        self.baseView.frame.origin.y = window.center.y - 400
+        self.view.alpha = 0
+        self.view.removeFromSuperview()
+        
         
         notificationTimer?.invalidate()
         notificationTimer = nil
